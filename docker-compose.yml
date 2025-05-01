@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  painel:
+    build: .
+    container_name: painel-chatwoot
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.painel.rule=Host(`myprompt.aura.doctor`)"
+      - "traefik.http.services.painel.loadbalancer.server.port=3000"
+    ports:
+      - "3000:3000"
