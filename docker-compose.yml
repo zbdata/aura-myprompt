@@ -2,7 +2,9 @@ version: '3.8'
 
 services:
   painel:
-    image: aura-myprompt:latest # Certifique-se de criar essa imagem antes de usar
+    build:
+      context: . # Diretório atual onde está o Dockerfile
+      dockerfile: Dockerfile # Nome do Dockerfile (opcional, se for "Dockerfile" por padrão)
     ports:
       - "3000:3000"
     environment:
